@@ -38,8 +38,8 @@
     (let* ((x (+ y 100))
            (y (+ x 100)))
       ;; Which X is used to compute the value of Y?
-      (assert-equal 330 x)
-      (assert-equal 330 y))))
+      (assert-equal 120 x)
+      (assert-equal 220 y))))
 
 (define-test let-it-be-equal
   ;; Fill in the LET and LET* to get the tests to pass.
@@ -52,11 +52,11 @@
       (assert-equal a 100)
       (assert-equal b 200)
       (assert-equal c "Jellyfish"))
-    (let* ((a (+ a 21))
-           (b b)
+    (let* ((a (+ a 120))
+           (b 200)
            ;; In this third binding, you are allowed to use the variables bound
            ;; by the previous two LET* bindings.
-           (c 123))
+           (c (+ 121 (/ 200 121))))
       (assert-equal a 121)
       (assert-equal b 200)
       (assert-equal c (+ a (/ b a))))))
